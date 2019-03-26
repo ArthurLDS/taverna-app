@@ -1,0 +1,3 @@
+rootProject.name = 'TavernaApp'
+
+include ':app'
