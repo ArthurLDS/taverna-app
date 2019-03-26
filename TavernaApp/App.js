@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 
 import { createDrawerNavigator, createAppContainer } from 'react-navigation'
 
-import { HomeScreen } from './src/layout/screens/home/home.screen'
+import { HomeScreen, EventsScreen } from './src/layout/screens'
 
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeScreen,
+  },
+  Events: {
+    screen: EventsScreen,
   },
 })
 

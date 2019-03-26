@@ -2,5 +2,6 @@
  * @providesModule screens
  */
 
- export { Home } from './home/home.screen'
+export { HomeScreen } from './home/home.screen'
+export { EventsScreen } from './events/events.screen'
 
