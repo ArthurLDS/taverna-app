@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Platform, Text, View } from 'react-native'
+import { Platform, Text, View, Image } from 'react-native'
 
 import styles from './home.style'
 
@@ -10,7 +10,12 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 })
 
-export class Home extends Component {
+export class HomeScreen extends Component {
+  static navigationOptions = {
+    title: 'Home',
+    headerRight: <Image source={{ uri: '' }} />
+  }
+
   render() {
     return (
       <View style={styles.container}>
