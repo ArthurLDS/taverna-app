@@ -11,7 +11,7 @@ const instructions = Platform.select({
 })
 
 export class Home extends Component {
-  render() {
+  render() {  
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Taverna RPG!</Text>
