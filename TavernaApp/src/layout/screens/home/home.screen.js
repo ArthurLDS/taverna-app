@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Platform, View, Image } from 'react-native'
 import { Button, Container, Text, Header, Title, Left, Right, Body, Icon } from 'native-base';
-import styles from './home.style'
 import { HeaderApp } from '../../components/header.app';
+import styles from './home.style'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,7 +20,7 @@ export class HomeScreen extends Component {
   render() {
     return ( 
       <Container>
-        <HeaderApp/>
+        <HeaderApp title="Taverna PUB" navigation={this.props.navigation}/>
         <Text style={styles.welcome}>Welcome to Taverna RPG!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
@@ -31,5 +31,3 @@ export class HomeScreen extends Component {
     );
   }
 }
-
-
