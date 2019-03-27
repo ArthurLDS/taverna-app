@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import { Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
 
 export class HeaderApp extends Component {
     render(){
         return(
             <Header>
                 <Left>
+                    {/* TODO: Implements action to open side bar */}
                     <Button transparent>
-                    <Icon name='menu' />
+                        <Icon name='menu' />
                     </Button>
                 </Left>
                 <Body>
-                    <Title>Header</Title>
+                    <Title>Taverna PUB</Title>
                 </Body>
                 <Right />
             </Header>
