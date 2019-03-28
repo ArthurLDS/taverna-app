@@ -1,21 +1,65 @@
 import React, { Component, Fragment } from 'react'
 
-import { createDrawerNavigator, createAppContainer, DrawerActions } from 'react-navigation'
-import { HomeScreen, EventsScreen } from './src/layout/screens'
+import {
+  createDrawerNavigator,
+  createAppContainer,
+  createStackNavigator,
+  createSwitchNavigator,
+} from 'react-navigation'
+import {
+  HomeScreen,
+  EventsScreen,
+  EventDetailScreen,
+} from './src/layout/screens'
 import material from './native-base-theme/variables/material'
 import { StyleProvider } from 'native-base'
 import getTheme from './native-base-theme/components'
 
-const MyDrawerNavigator = createDrawerNavigator({
-  Home: {
-    screen: HomeScreen,
+const defaultStackNavigatorConfig = {
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: '#3B3232',
+    },
+    headerTitleStyle: {
+      color: 'white',
+    },
   },
-  Events: {
-    screen: EventsScreen,
-  },
+}
+
+const HomeStack = createStackNavigator(
+  { Home: HomeScreen },
+  defaultStackNavigatorConfig,
+)
+const EventsStack = createStackNavigator(
+  { Events: EventsScreen, EventDetail: EventDetailScreen },
+  defaultStackNavigatorConfig,
+)
+const AppStack = createDrawerNavigator({
+  Home: { screen: HomeStack, navigationOptions: { title: 'Home' } },
+  Events: { screen: EventsStack, navigationOptions: { title: 'Eventos' } },
 })
 
-const MyApp = createAppContainer(MyDrawerNavigator)
+EventsStack.navigationOptions = ({ navigation }) => {
+  let drawerLockMode = 'unlocked'
+  if (navigation.state.index > 0) {
+    drawerLockMode = 'locked-closed'
+  }
+
+  return {
+    drawerLockMode,
+  }
+}
+
+const MyApp = createAppContainer(
+  createSwitchNavigator(
+    {
+      App: AppStack,
+    },
+    {
+      initialRouteName: 'App',
+    },
+  ),
+)
 
 export default class App extends Component {
   render() {
