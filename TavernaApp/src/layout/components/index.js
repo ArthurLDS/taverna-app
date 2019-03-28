@@ -1,1 +1,1 @@
-export { TBHeader } from './header/header.component'
+export { TPHeader } from './header/header.component'

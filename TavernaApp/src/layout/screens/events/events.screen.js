@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
-import { Platform, Text, View, Image } from 'react-native'
+import { Text, View, Image } from 'react-native'
 
 import styles from './events.style'
 
-export class EventsScreen extends Component {
-  static navigationOptions = {
-    title: 'Eventos',
-    headerRight: <Image source={{ uri: '' }} />
-  }
+import { BaseScreen } from '../base.screen'
 
-  render() {
+export class EventsScreen extends BaseScreen {
+  renderContent() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Eventos</Text>
       </View>
-    );
+    )
   }
 }
-
-
